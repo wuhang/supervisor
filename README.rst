@@ -53,3 +53,7 @@ If you'd like to contribute to supervisor directly, please contact the
 `Supervisor-users mailing list
 <http://lists.supervisord.org/mailman/listinfo/supervisor-users>`_.
 
+Modify
+------------
+增加从远程加载配置功能sendProcessGroup
+

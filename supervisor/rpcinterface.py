@@ -84,7 +84,6 @@ class SupervisorNamespaceRPCInterface:
         @return struct A struct with keys int statecode, string statename
         """
         self._update('getState')
-
         state = self.supervisord.options.mood
         statename = getSupervisorStateDescription(state)
         data =  {
@@ -199,6 +198,24 @@ class SupervisorNamespaceRPCInterface:
                     raise RPCError(Faults.ALREADY_ADDED, name)
                 return True
         raise RPCError(Faults.BAD_NAME, name)
+
+    def _log(self, msg):
+        file = open('123.log', 'a')
+        file.write(msg + "\n")
+        file.close()
+
+    def sendProcessGroup(self, config):
+        """
+        add local job for a running process group from remote host send
+        :param string name:
+        :param string config:
+        :return boolean result:
+        """
+        try:
+            self.supervisord.addProcessGroup(config)
+        except  Exception as e:
+            self._log(e.message)
+        return True
 
     def removeProcessGroup(self, name):
         """ Remove a stopped process from the active configuration.

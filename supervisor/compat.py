@@ -82,6 +82,7 @@ except ImportError: # pragma: no cover
     syslog = None
 
 try: # pragma: no cover
+    from configparser import MissingSectionHeaderError
     import configparser as ConfigParser
 except ImportError: # pragma: no cover
    import ConfigParser

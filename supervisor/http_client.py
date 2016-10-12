@@ -2,6 +2,7 @@
 
 import sys
 import socket
+import requests
 
 from supervisor.compat import urlparse
 from supervisor.compat import as_bytes
@@ -33,6 +34,31 @@ class Listener(object):
 
     def close(self, url):
         pass
+
+class HTTPClient(object):
+
+    def __init__(self, host):
+        self.host = host
+
+    def get_config(self):
+        """
+        get network config
+        :return:
+        """
+        response = requests.get(self.host + '/start/config')
+        return response.text
+
+    def get_job_config(self):
+        """
+        get job config
+        :return:
+        """
+        response = requests.get(self.host + '/start/job-config', params={
+            'hostname': socket.gethostname()
+        })
+        if len(response.text) == 0:
+            return False
+        return response.text
 
 class HTTPHandler(asynchat.async_chat):
     def __init__(

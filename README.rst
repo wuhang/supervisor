@@ -56,8 +56,8 @@ If you'd like to contribute to supervisor directly, please contact the
 Modify
 ------------
 增加从远程加载配置功能
-function
-    sendProcessGroup
-params:
-    $config string 进程组配置文件
+    function
+        sendProcessGroup
+    params:
+        $config string 进程组配置文件
 

@@ -398,22 +398,11 @@ def main(args=None, test=False):
             break
 
 def go(options): # pragma: no cover
-#     options.load_config("""
-# [program:picture-jop]
-# command = yii image
-# autostart = false
-# autorestart = true
-# numprocs = 20
-# process_name=%(program_name)s_%(process_num)02d;
-#     """)
-#     print options.process_group_configs
-#     print options
-#     exit()
     d = Supervisor(options)
-    # try:
-    d.main()
-    # except asyncore.ExitNow:
-    #     pass
+    try:
+        d.main()
+    except asyncore.ExitNow:
+        pass
 
 if __name__ == "__main__": # pragma: no cover
     main()

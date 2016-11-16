@@ -211,7 +211,7 @@ class SupervisorNamespaceRPCInterface:
         :param string config:
         :return boolean result:
         """
-        print fucker
+        print config
         try:
             self.supervisord.addProcessGroup(config)
         except  Exception as e:

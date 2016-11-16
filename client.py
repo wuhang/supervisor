@@ -385,7 +385,7 @@ def main(args=None, test=False):
         options = ServerOptions()
         options.realize(args, doc=__doc__)
         options.first = first
-        options.test = test
+        options.test = True
         if options.profile_options:
             sort_order, callers = options.profile_options
             profile('go(options)', globals(), locals(), sort_order, callers)

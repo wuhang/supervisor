@@ -141,13 +141,11 @@ class Supervisor:
         try:
             self.options.load_config(config)
         except Exception as e :
-            self._log('sdfsdfsdfs')
             self._log(e.message)
         job_name = self.get_config_job_name(config)
         for group in self.options.process_group_configs:
             if group.name == job_name:
                 self.add_process_group(group)
-                self._log('1231231232131231231')
                 self._log(group.name)
 
     def add_process_group(self, config):

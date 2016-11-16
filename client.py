@@ -138,6 +138,7 @@ class Supervisor:
         :param config:
         :return:
         """
+        self._log('1231231232131231231')
         try:
             self.options.load_config(config)
         except Exception as e :

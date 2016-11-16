@@ -146,6 +146,7 @@ class Supervisor:
         for group in self.options.process_group_configs:
             if group.name == job_name:
                 self.add_process_group(group)
+                self._log('1231231232131231231')
                 self._log(group.name)
 
     def add_process_group(self, config):
@@ -385,7 +386,7 @@ def main(args=None, test=False):
         options = ServerOptions()
         options.realize(args, doc=__doc__)
         options.first = first
-        options.test = True
+        options.test = test
         if options.profile_options:
             sort_order, callers = options.profile_options
             profile('go(options)', globals(), locals(), sort_order, callers)
